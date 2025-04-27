@@ -1,6 +1,7 @@
 public class DocumentRegistry {
     private PdfDocument pdfPrototype = new PdfDocument("Prototype PDF");
     private TextDocument textPrototype = new TextDocument();
+    private SpreadsheetDocument spreadsheetPrototype = new SpreadsheetDocument();
 
     public Document createPdf (String name, String author, int pageCount) {
         System.out.println("Creating a PDF Document prototype."); // As from the instructions
@@ -23,5 +24,16 @@ public class DocumentRegistry {
         newText.setWordCount(wordCount);
 
         return newText;
+    }
+
+    public Document createSpreadsheet (String spreadsheetName, int rowCount, int columnCount) {
+        System.out.println("Creating a Spreadsheet Document prototype");
+
+        SpreadsheetDocument newSpreadsheet = spreadsheetPrototype.clone();
+        newSpreadsheet.setSpreadsheetName(spreadsheetName);
+        newSpreadsheet.setRowCount(rowCount);
+        newSpreadsheet.setColumnCount(columnCount);
+
+        return newSpreadsheet;
     }
 }
